@@ -1,0 +1,15 @@
+---
+galaxy_info:
+  author: Redouane Zait
+  description: Installs Golang and sets add it to PATH env
+  company: 
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+  - name: Ubuntu
+    versions:
+    - all
+  categories:
+  - development
+  - system
+dependencies: []

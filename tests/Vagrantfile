@@ -1,0 +1,26 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure(2) do |config|
+  
+  name = 'golang'
+  ip = '192.168.99.10'
+
+  config.vm.define name do |machine|
+    machine.vm.box = 'ubuntu/trusty64'
+    machine.vm.box_url
+    machine.vm.hostname  = name
+    machine.vm.network :private_network, ip:ip, netmask: '255.255.255.0'
+    machine.vm.network :forwarded_port, guest:22, host:2244, id:'ssh', auto_correct: true
+
+    machine.vm.provider "virtualbox" do |vb|
+      vb.gui = false
+      vb.memory = 512
+    end
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "playbook.yml"
+  end
+
+end
