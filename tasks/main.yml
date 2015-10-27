@@ -22,3 +22,10 @@
 
 - name: ensure the golang profile.d entry is executable
   file: path=/etc/profile.d/golang.sh mode="a+x"
+
+- name: symlink go binaries to /usr/local/bin
+  file: src=/usr/local/go/bin/{{ item }} dest=/usr/local/bin/{{ item }} state=link
+  with_items:
+    - go
+    - godoc
+    - gofmt
