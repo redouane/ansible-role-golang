@@ -9,6 +9,8 @@ env:
 before_install:
   - uname -a
   - sudo apt-get update -qq
+  - sudo apt-get remove -y golang
+  - sudo apt-get purge -y golang
 
 install:
   - sudo apt-get install -y curl
