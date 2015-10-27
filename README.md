@@ -5,12 +5,7 @@ Ansible Role: Golang
 
 
 - Downloads and installs Golang (binary)
-- adds an entry to /etc/environment
-
-Requirements
-------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+- exports go's binary path via an entry in /etc/profile.d
 
 Role Variables
 --------------
